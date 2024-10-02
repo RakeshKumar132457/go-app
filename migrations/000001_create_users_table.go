@@ -19,6 +19,7 @@ func init() {
 					first_name VARCHAR(50),
 					last_name VARCHAR(50),
 					date_of_birth DATE,
+					status TINYINT DEFAULT 1,
 					created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 					last_login TIMESTAMP WITH TIME ZONE
 				)

@@ -16,6 +16,7 @@ func SetupUserRoutes(db *sql.DB) *http.ServeMux {
 	userHandler := handlers.NewUserHandler(userService)
 
 	userMux.HandleFunc("GET /{id}", userHandler.GetUser)
+	userMux.HandleFunc("GET /users", userHandler.GetAllUsers)
 
 	return userMux
 }

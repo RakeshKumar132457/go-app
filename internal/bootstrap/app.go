@@ -6,6 +6,7 @@ import (
 	"go-app/api/routers"
 	"go-app/internal/config"
 	"go-app/internal/database"
+	_ "go-app/migrations"
 	"log"
 	"net/http"
 

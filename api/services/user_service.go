@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"go-app/api/repositories"
 	"go-app/internal/models"
+	"log"
 )
 
 type UserRepository struct {
@@ -19,5 +20,19 @@ func NewUserService(userRepo *repositories.UserRepository) *UserService {
 }
 
 func (s *UserService) GetUserByID(id int64) (*models.User, error) {
-	return s.userRepo.GetByID(id)
+	user, err := s.userRepo.GetByID(id)
+	if err != nil {
+		log.Printf(("Error in UserService.GetUserByID: %v"), err)
+		return nil, err
+	}
+	return user, nil
+}
+
+func (s *UserService) GetAllUsers() ([]models.User, error) {
+	users, err := s.userRepo.GetAllUsers()
+	if err != nil {
+		log.Printf("Error in UserService.GetAllUsers: %v", err)
+		return nil, err
+	}
+	return users, nil
 }
